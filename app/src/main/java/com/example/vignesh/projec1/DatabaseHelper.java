@@ -1,5 +1,6 @@
 package com.example.vignesh.projec1;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -12,7 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final int db_ver=1;
     private static final String db_name="test.db";
     private static final String table_name="contacts";
-    private static final String col_id="id";
+    //private static final String col_id="id";
     private static final String col_name="name";
     private static final String col_email="email";
     private static final String col_uname="uname";
@@ -28,7 +29,16 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db.execSQL(table_create);
         this.db=db;
     }
+    public void insertUser(User user){
+        db=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(col_name,user.getName());
+        contentValues.put(col_email,user.getEmail());
+        contentValues.put(col_uname,user.getUname());
+        contentValues.put(col_pass,user.getPass());
 
+        db.insert(table_name,null,contentValues);
+    }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         String query="drop table if exists "+table_name;

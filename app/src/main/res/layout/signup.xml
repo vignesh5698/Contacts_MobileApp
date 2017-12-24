@@ -69,6 +69,7 @@
             android:layout_below="@+id/editText5"
             android:layout_marginStart="108dp"
             android:layout_marginTop="38dp"
+            android:onClick="OnSignup"
             android:text="SignUp" />
     </RelativeLayout>
 

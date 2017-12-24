@@ -4,9 +4,9 @@ package com.example.vignesh.projec1;
  * Created by vignesh on 21/12/17.
  */
 
-public class Contact {
+public class User {
     String name,email,uname,pass;
-    int id;
+
 
     public String getName() {
         return name;
@@ -40,11 +40,5 @@ public class Contact {
         this.pass = pass;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 }
